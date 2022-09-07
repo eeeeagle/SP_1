@@ -165,7 +165,7 @@ void create(const char *path)
 
 int main()
 {
-    const char *path = "/home/daniil/Desktop/The Witcher";
+    const char *path = "/home/user/Desktop/The Witcher";
     create(path);
     printf("");
     int c = getchar();
