@@ -24,7 +24,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
-#define BUF_SIZE 256
+#include <limits.h>
 #define KBYTE 1024
 
 int write_file(const char* filename, const char* buf) // create filename and write buf
@@ -166,8 +166,8 @@ void create(const char *path)
 
     chdir("Geralt");
     truncate_file("Geralt.txt", KBYTE);
-    char geralt_path[BUF_SIZE];
-    getcwd(geralt_path, BUF_SIZE);
+    char geralt_path[PATH_MAX];
+    getcwd(geralt_path, PATH_MAX);
     strcat(geralt_path, "/Geralt.txt");
 
     chdir("../Zoltan & Dandelion");
@@ -183,8 +183,8 @@ void create(const char *path)
 
 int main(int argc, char *argv[])
 {
-    char path[BUF_SIZE];
-    getcwd(path, BUF_SIZE);
+    char path[PATH_MAX];
+    getcwd(path, PATH_MAX);
     if(argc > 1)
     {
         if(opendir(argv[1]) == NULL)
